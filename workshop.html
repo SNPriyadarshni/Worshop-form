@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Workshop Sign-up Form</title>
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        background-color: #eef2f3;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+    }
+    form {
+        background: white;
+        padding: 20px 25px;
+        border-radius: 10px;
+        box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+        width: 320px;
+    }
+    h2 {
+        text-align: center;
+        color: #333;
+    }
+    label {
+        display: block;
+        margin: 10px 0 5px;
+        font-weight: bold;
+    }
+    input, select {
+        width: 100%;
+        padding: 8px;
+        margin-bottom: 12px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+    }
+    button {
+        background: #007bff;
+        color: white;
+        border: none;
+        padding: 10px;
+        width: 100%;
+        border-radius: 5px;
+        cursor: pointer;
+        font-size: 16px;
+    }
+    button:hover {
+        background: #0056b3;
+    }
+</style>
+</head>
+<body>
+
+<form id="signupForm">
+    <h2>Workshop Sign-up</h2>
+    
+    <label for="name">Name:</label>
+    <input type="text" id="name" placeholder="Enter your name">
+
+    <label for="email">Email:</label>
+    <input type="email" id="email" placeholder="Enter your email">
+
+    <label for="phone">Phone:</label>
+    <input type="text" id="phone" placeholder="Enter your phone number">
+
+    <label for="topic">Workshop Topic:</label>
+    <select id="topic">
+        <option value="">Select Topic</option>
+        <option>Web Development</option>
+        <option>Data Science</option>
+        <option>AI & Machine Learning</option>
+        <option>UI/UX Design</option>
+    </select>
+
+    <label for="experience">Experience Level:</label>
+    <select id="experience">
+        <option value="">Select Level</option>
+        <option>Beginner</option>
+        <option>Intermediate</option>
+        <option>Advanced</option>
+    </select>
+
+    <button type="submit">Register</button>
+</form>
+
+<script>
+document.getElementById("signupForm").addEventListener("submit", function(event) {
+    event.preventDefault();
+
+    let name = document.getElementById("name").value.trim();
+    let email = document.getElementById("email").value.trim();
+    let phone = document.getElementById("phone").value.trim();
+    let topic = document.getElementById("topic").value;
+    let experience = document.getElementById("experience").value;
+
+    let emailPattern = /^[^ ]+@[^ ]+\.[a-z]{2,3}$/;
+    let phonePattern = /^[0-9]{10}$/; // exactly 10 digits
+
+    if (!name || !email || !phone || !topic || !experience) {
+        alert("Please fill in all fields.");
+        return;
+    }
+
+    if (!emailPattern.test(email)) {
+        alert("Please enter a valid email address.");
+        return;
+    }
+
+    if (!phonePattern.test(phone)) {
+        alert("Phone number must be exactly 10 digits.");
+        return;
+    }
+
+    alert("Registration Successful!");
+    this.reset();
+});
+</script>
+
+</body>
+</html>
