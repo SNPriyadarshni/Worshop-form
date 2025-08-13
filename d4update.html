@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Workshop Sign-up Form</title>
+<style>
+    :root {
+        --bg-color: #eef2f3;
+        --card-bg: white;
+        --primary-color: #007bff;
+        --primary-hover: #0056b3;
+        --text-color: #333;
+        --shadow: 0 4px 8px rgba(0,0,0,0.2);
+    }
+
+    body {
+        font-family: Arial, sans-serif;
+        background-color: var(--bg-color);
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        padding: 20px;
+        margin: 0;
+    }
+
+    form {
+        background: var(--card-bg);
+        padding: 20px 25px;
+        border-radius: 10px;
+        box-shadow: var(--shadow);
+        width: 320px;
+        position: relative;
+        animation: fadeIn 1.2s ease-in-out;
+        margin-bottom: 20px;
+    }
+
+    h2 {
+        text-align: center;
+        color: var(--text-color);
+    }
+
+    h2::after {
+        content: "";
+        display: block;
+        height: 3px;
+        width: 50px;
+        background: var(--primary-color);
+        margin: 8px auto 0;
+        border-radius: 2px;
+    }
+
+    label {
+        display: block;
+        margin: 10px 0 5px;
+        font-weight: bold;
+    }
+
+    input, select {
+        width: 100%;
+        padding: 8px;
+        margin-bottom: 12px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+    }
+
+    button {
+        background: var(--primary-color);
+        color: white;
+        border: none;
+        padding: 10px;
+        width: 100%;
+        border-radius: 5px;
+        cursor: pointer;
+        font-size: 16px;
+    }
+
+    button:hover {
+        background: var(--primary-hover);
+    }
+
+    /* Card styling */
+    .card {
+        background: var(--card-bg);
+        padding: 15px;
+        margin: 10px;
+        border-radius: 8px;
+        box-shadow: var(--shadow);
+        width: 200px;
+        text-align: center;
+    }
+    .delete-btn {
+        background: crimson;
+        color: white;
+        padding: 5px 8px;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+    }
+    .delete-btn:hover {
+        background: darkred;
+    }
+
+    #cardContainer {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        max-width: 700px;
+    }
+
+    @keyframes fadeIn {
+        from { opacity: 0; transform: translateY(-20px); }
+        to { opacity: 1; transform: translateY(0); }
+    }
+</style>
+</head>
+<body>
+
+<form id="signupForm">
+    <h2>Workshop Sign-up</h2>
+    
+    <label for="name">Name:</label>
+    <input type="text" id="name" placeholder="Enter your name">
+
+    <label for="email">Email:</label>
+    <input type="email" id="email" placeholder="Enter your email">
+
+    <label for="phone">Phone:</label>
+    <input type="text" id="phone" placeholder="Enter your phone number">
+
+    <label for="topic">Workshop Topic:</label>
+    <select id="topic">
+        <option value="">Select Topic</option>
+        <option>Web Development</option>
+        <option>Data Science</option>
+        <option>AI & Machine Learning</option>
+        <option>UI/UX Design</option>
+    </select>
+
+    <label for="experience">Experience Level:</label>
+    <select id="experience">
+        <option value="">Select Level</option>
+        <option>Beginner</option>
+        <option>Intermediate</option>
+        <option>Advanced</option>
+    </select>
+
+    <button type="submit">Register</button>
+    <button type="button" id="colorBtn" style="margin-top:8px;">Change Me :)</button>
+</form>
+
+<!-- Card Creation Section -->
+<button id="createCardBtn">Help center</button>
+<div id="cardContainer"></div>
+
+<!-- Import JS modules -->
+<script type="module" src="main.js"></script>
+</body>
+</html>
